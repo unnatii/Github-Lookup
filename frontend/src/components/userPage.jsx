@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import axios from "axios";
+import Tab from './tabs';
 
 class UserPage extends Component {
     constructor(props) {
         super(props);
         this.state = { 
             userObj: '',
-            userId:props.match.params.user
+            userId:props.match.params.user,
+            repodata:''
          };
       }
     Userdata = usr =>{
@@ -21,16 +23,31 @@ class UserPage extends Component {
         });
       }
 
+      Repodata = () =>{
+        axios.get(`https://api.github.com/users/${this.state.userId}/repos`)
+        .then(response => {
+           
+            this.setState({repodata:response.data})
+      
+        })
+        .catch(error => {
+          console.log(error);
+        });
+      }
+
     componentDidMount() {
        this.Userdata("");
+       this.Repodata();
         
     }
   
     
     render() { 
         const {avatar_url,login,html_url,followers,following,bio,email,location}=this.state.userObj;
-    return ( <div style={{backgroundColor:'#EAECEE ',width:'1100px',height:'500px',lineHeight:'50px',
-    margin:'30px 0 0 80px'}}>
+    return ( 
+      <React.Fragment>
+    <div style={{backgroundColor:'#EAECEE ',width:'1100px',height:'500px',lineHeight:'50px',
+    margin:'30px 0 50px 80px'}}>
     <img style={{width:'300px',height:'400px',margin:'50px'}} alt="" 
     src={avatar_url}/>
     <div style={{float:"right" ,backgroundColor:'#D5D8DC ',width:'600px',margin:'50px',
@@ -45,7 +62,10 @@ class UserPage extends Component {
     
     </div>   
 
-            </div> );
+            </div>
+              {console.log("**",this.state.repodata)}
+            <Tab repo={this.state.repodata}/>
+            </React.Fragment> );
     }
 }
  

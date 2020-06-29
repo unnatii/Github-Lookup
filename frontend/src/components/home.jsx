@@ -3,6 +3,7 @@ import axios from "axios";
 import Cards from './cards';
 import Form from './form';
 
+
 class Home extends Component {
    
     constructor(props) {
@@ -10,8 +11,6 @@ class Home extends Component {
         this.state = { 
             list:[],
             username: '',
-           
-
          };
       }
 
@@ -54,7 +53,7 @@ class Home extends Component {
             <div>
             
             <Form searchValue={this.dataFetch}/>
-   
+        
             <div >{this.cardsfunc()}</div>
             </div>  
             
