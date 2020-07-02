@@ -1,0 +1,35 @@
+.form-div{
+    margin:150px 0 0 200px;
+}
+
+
+.input-div{
+  display: inline;
+}
+
+.input-tag{
+    padding: 10px;
+    border-radius: 12px 0 0 12px;
+    border:2px solid #F0F0F0;
+    width: 300px;
+}
+
+.select-div{
+ display: inline;
+}
+
+.select-tag{
+    padding: 10px;
+    background: #F0F0F0;
+    border:4.5px solid #F0F0F0;
+    width: 120px;
+}
+
+.button-div{
+    display: inline;
+}
+
+.btntag{
+    border:2px solid #F0F0F0;
+    padding: 10px;
+}

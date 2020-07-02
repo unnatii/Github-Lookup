@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
+import './form.css'
 
 class Form extends Component {
     
@@ -22,30 +22,21 @@ class Form extends Component {
 
     render() { 
         return ( 
-            <form style={{ margin:'60px 0 50px 500px'}} onSubmit={this.mySubmitHandler}>
-                  <div className="radio">
-          <label>
-            <input type="radio" value="1" checked={this.state.option==="1"} onChange={this.myChangeHandler2} />
-            User
-          </label>
-        </div>
-        <div className="radio">
-          <label>
-            <input type="radio" value="2" checked={this.state.option==="2"} onChange={this.myChangeHandler2} />
-           Repository
-          </label>
-        </div>
-            <div className="form-row align-items-center">
-              
-             
-              <div className="col-auto">
-        <label className="sr-only" for="inlineFormInputGroup">{this.props.placevalue}</label>
-                <input type="text" className="form-control" id="inlineFormInputGroup" 
-                placeholder={this.props.placevalue}  onChange={this.myChangeHandler1} />
+            <form  onSubmit={this.mySubmitHandler}>
+              {/* className="form-row align-items-center"    */}
+            <div className="form-div"  style={{margin:"150px 0 0 400px "}} >
+              <div className="input-div">
+                <input className="input-tag" type="text" placeholder={this.props.placevalue}  
+                  onChange={this.myChangeHandler1} />
               </div>
-           
-              <div className="col-auto">
-                <button type="submit" className="btn btn-primary mb-2">Search</button>
+              <div className="select-div" >
+                <select className="select-tag" name="option" onChange={this.myChangeHandler2}>
+                    <option  value="1">User</option>
+                    <option  value="2">Repository</option>
+                </select>
+              </div>
+              <div className="button-div" >
+                <button type="submit" className="btntag ">Search</button>
               </div>
             </div>
           </form>
