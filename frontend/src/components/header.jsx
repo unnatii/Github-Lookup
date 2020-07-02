@@ -16,7 +16,7 @@ const Header = () =>{
   <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
     <ul className="navbar-nav">
       <li className="nav-item active">
-      <Link to="/" className="nav-link" >Settings</Link>
+      <Link to="/" className="nav-link" >option</Link>
       </li>
       
     </ul>
