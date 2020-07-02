@@ -63,7 +63,7 @@ class UserPage extends Component {
     </div>   
 
             </div>
-              {console.log("**",this.state.repodata)}
+              
             <Tab repo={this.state.repodata}/>
             </React.Fragment> );
     }
