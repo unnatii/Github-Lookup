@@ -16,6 +16,11 @@ class Home extends Component {
          };
       }
 
+      componentDidMount() {
+        this.dataFetch("");        
+     }
+
+     
       dataFetch = (key,option) =>{
        this.setState({k:key,option:option});
         if(option==="1"){
@@ -45,38 +50,23 @@ class Home extends Component {
         
       }
 
- 
-    componentDidMount() {
-       this.dataFetch("");        
-    }
-
-    usercardsfunc = () =>{
+    cardsfunc = () =>{
+      
         if(this.state.list.length===0 && this.state.total_count===0 && this.state.k!==''){
             return <div style={{backgroundColor:'#F5B7B1',width:'400px',height:'60px',
-            borderRadius:'5px',padding:'15px 0 0 70px',margin:'0 0 0 450px'}}>No Users Found with this Username</div>
+            borderRadius:'5px',padding:'15px 0 0 70px',margin:'0 0 0 450px'}}>No Result found</div>
         }
-        let userlist=  this.state.list.map((item,i)=>{
-          return   ( <Cards username={item.login} 
-          image={item.avatar_url} 
-          github={item.html_url}/>
-          )
+        let list=  this.state.list.map((item,i)=>{
+          return this.state.option==="1"?
+           <Cards username={item.login} image={item.avatar_url} github={item.html_url}/>:
+          <Repocards name={item.name} /> 
         });
     
-        return userlist;
+        return list;
   }
 
-  repocardsfunc = () =>{
-    if(this.state.list.length===0 && this.state.total_count===0 && this.state.k!==''){
-        return <div style={{backgroundColor:'#F5B7B1',width:'400px',height:'60px',
-        borderRadius:'5px',padding:'15px 0 0 70px',margin:'0 0 0 450px'}}>No Repo Found with this name</div>
-    }
-    let replist=  this.state.list.map((item,i)=>{
-      return   ( <Repocards name={item.name} />
-      )
-    });
+  
 
-    return replist;
-}
     
     render() { 
         return ( 
@@ -84,8 +74,7 @@ class Home extends Component {
             <div>
             
             <Form placevalue={"Username/Repository"} searchValue={this.dataFetch}/>
-      
-            {this.state.option==="1"?<div >{this.usercardsfunc()}</div>:<div >{this.repocardsfunc()}</div>}
+             {this.cardsfunc()}
             
             </div>  
             
