@@ -1,5 +1,5 @@
 .form-div{
-    margin:150px 0 0 200px;
+    margin:150px 0 100px 400px;
 }
 
 
@@ -18,12 +18,14 @@
  display: inline;
 }
 
-.select-tag{
+select{
     padding: 10px;
     background: #F0F0F0;
     border:4.5px solid #F0F0F0;
     width: 120px;
 }
+
+
 
 .button-div{
     display: inline;

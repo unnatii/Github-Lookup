@@ -1,6 +1,7 @@
 import React from "react";
 import { Tabs } from "@feuer/react-tabs";
 import Timeline from './timeline';
+import Profile from './userprofile'
 
 const tab = (props) => {
     return (  
@@ -15,10 +16,10 @@ const tab = (props) => {
               id: "tab1"
             }}
           >
-            <Tabs.Tab id="tab1" title="Tab 1">
-              <div style={{ padding: 10 }}>This is tab 1</div>
+            <Tabs.Tab id="tab1" title="Profile">
+              <div style={{ padding: 10 }}><Profile prop={props.info}/></div>
             </Tabs.Tab>
-            <Tabs.Tab id="tab2"  title="Tab 2">
+            <Tabs.Tab id="tab2"  title="Repositories">
              
               <div style={{ padding: 10, backgroundColor:"#F0F0F0"}}><Timeline data={props.repo}/></div>
             </Tabs.Tab>

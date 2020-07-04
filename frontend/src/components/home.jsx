@@ -26,7 +26,7 @@ class Home extends Component {
         if(option==="1"){
           axios.get(`https://api.github.com/search/users?q=${key}`)
           .then(response => {
-             // console.log(response.data);
+              console.log('users',response.data);
               this.setState({list:response.data.items,
               total_count:response.data.total_count})
               
@@ -37,7 +37,7 @@ class Home extends Component {
         }else{
           axios.get(`https://api.github.com/search/repositories?q=${key}`)
           .then(response => {
-              console.log(response.data.items);
+              console.log('repo',response.data.items);
               this.setState({list:response.data.items,
                 total_count:response.data.total_count})
               
@@ -53,9 +53,8 @@ class Home extends Component {
     cardsfunc = () =>{
       
         if(this.state.list.length===0 && this.state.total_count===0 && this.state.k!==''){
-            return <div style={{backgroundColor:'#F5B7B1',width:'400px',height:'60px',
-            borderRadius:'5px',padding:'15px 0 0 70px',margin:'0 0 0 450px'}}>No Result found</div>
-        }
+            return <div style={{margin:'30px 0 0 550px',color:"#A5A4A4"}}>No Result found</div>
+        }else{
         let list=  this.state.list.map((item,i)=>{
           return this.state.option==="1"?
            <Cards username={item.login} image={item.avatar_url} github={item.html_url}/>:
@@ -63,6 +62,7 @@ class Home extends Component {
         });
     
         return list;
+      }
   }
 
   

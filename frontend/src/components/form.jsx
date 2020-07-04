@@ -24,13 +24,13 @@ class Form extends Component {
         return ( 
             <form  onSubmit={this.mySubmitHandler}>
               {/* className="form-row align-items-center"    */}
-            <div className="form-div"  style={{margin:"150px 0 0 400px "}} >
+            <div className="form-div"   >
               <div className="input-div">
                 <input className="input-tag" type="text" placeholder={this.props.placevalue}  
                   onChange={this.myChangeHandler1} />
               </div>
               <div className="select-div" >
-                <select className="select-tag" name="option" onChange={this.myChangeHandler2}>
+                <select  name="option" onChange={this.myChangeHandler2}>
                     <option  value="1">User</option>
                     <option  value="2">Repository</option>
                 </select>

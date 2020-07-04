@@ -11,11 +11,12 @@ class App extends Component {
         return ( 
 
             <div>
-            <Header/>
+            
             <BrowserRouter>
+            <Header/>
             <Switch>
             <Route path='/' exact component={withRouter(Home)} />
-            <Route path='/:user' component={UserPage} />
+            <Route path='/:user' component={withRouter(UserPage)} />
             </Switch>
             </BrowserRouter>
             </div> 
